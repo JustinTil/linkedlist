@@ -60,10 +60,8 @@ struct node_t *insert_to_index(int val, int index, struct node_t *head)
         return new_node;
     }
 
-    if ((find_list_len(head) < index) || (index < 0)) {
-        fprintf(stderr, "Cannot insert node to specified index\n");
-        abort();
-    }
+    if ((find_list_len(head) < index) || (index < 0))
+        return NULL;
 
     for (int i = 0; i < (index - 1); i++) {
         tmp = tmp->next;

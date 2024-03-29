@@ -19,13 +19,13 @@ int main(){
     struct node_t *head = &n1;
 
     print_list(head);
+    printf("________________________\n");
 
-    int index = 6;
-    struct node_t *test = node_at_index(index, head);
-    if (test == NULL)
-        printf("Index not valid\n");
-    else
-        printf("Value at index %d = %d\n", index, test->val);
-
+    if ((head = insert_to_index(69, 400, head)) == NULL) {
+        fprintf(stderr, "Cannot insert at index\n");
+    } else {
+        print_list(head);
+    }
+        
     return 0;
 }
