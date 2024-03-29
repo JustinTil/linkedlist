@@ -4,10 +4,12 @@
 void print_list(struct node_t *head)
 {
     struct node_t *tmp = head;
+    int index = 0;
 
     while (tmp != NULL) {
-       fprintf(stdout, "%d\n", tmp->val); 
+       fprintf(stdout, "[%d]: %d\n", index, tmp->val); 
        tmp = tmp->next;
+       index++;
     }
 }
 
@@ -72,4 +74,37 @@ struct node_t *insert_to_index(int val, int index, struct node_t *head)
     tmp->next = new_node;
 
     return head;
+}
+
+struct node_t *find_next_val(int val, struct node_t *first_node)
+{
+    struct node_t *tmp = first_node;
+
+    while (tmp != NULL) {
+        if (tmp->val == val)
+            return tmp;
+
+        tmp = tmp->next;
+    }
+
+    return NULL;
+}
+
+struct node_t *node_at_index(int index, struct node_t *head)
+{
+    struct node_t *tmp = head;
+    int i = 0;
+
+    if (index < 0)
+        return NULL;
+
+    while (tmp != NULL) {
+        if (i == index)
+            return tmp;        
+
+        tmp = tmp->next;
+        i++;
+    }
+
+    return NULL;
 }
