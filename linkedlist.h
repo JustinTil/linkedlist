@@ -17,4 +17,7 @@ struct node_t *insert_to_index(int val, int index, struct node_t *head);
 struct node_t *find_next_val(int val, struct node_t *first_node);
 struct node_t *node_at_index(int index, struct node_t *head);
 
+// TODO add function to delete a node at specified index (with free() for memory)
+// TODO add function to free all linked list from memory
+
 #endif
