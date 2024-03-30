@@ -19,13 +19,6 @@ int main(){
     struct node_t *head = &n1;
 
     print_list(head);
-    printf("________________________\n");
-
-    if ((head = insert_to_index(69, 400, head)) == NULL) {
-        fprintf(stderr, "Cannot insert at index\n");
-    } else {
-        print_list(head);
-    }
         
     return 0;
 }

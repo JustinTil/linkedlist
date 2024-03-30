@@ -106,3 +106,39 @@ struct node_t *node_at_index(int index, struct node_t *head)
 
     return NULL;
 }
+
+struct node_t *delete_node(int index, struct node_t *head)
+{
+    struct node_t *tmp = head;
+
+    if (index == 0){
+        head = head->next;
+        // TODO free memory from deleted node
+        return head;
+    }
+
+    if (index > find_list_len(head)) {
+        return NULL;
+    }
+
+    for (int i = 0; i < (index - 1); i++) {
+        tmp = tmp->next;
+    }
+
+    tmp->next = tmp->next->next;
+    // TODO free deleted node
+
+    return head;
+}
+
+// FIXME
+// void free_list(struct node_t *head)
+// {
+//     struct node_t *tmp;
+
+//     while (head != NULL) {
+//         tmp = head;
+//         head = head->next;
+//         free(tmp);
+//     }
+// }
